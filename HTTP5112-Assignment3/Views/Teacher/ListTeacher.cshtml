@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "List Teachers";
+    string[] Headers = new string[] { "Teacher Name" };
+}
+
+<div class="table">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                @{
+                    foreach (var head in Headers)
+                    {
+                        <th>
+                            @head
+                        </th>
+                    }
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                @{
+                    foreach (var teacher in ViewBag.TeachersList)
+                    {
+                        <td>
+                            @teacher
+                        </td>
+                    }
+                }
+            </tr>
+        </tbody>
+    </table>
+</div>
