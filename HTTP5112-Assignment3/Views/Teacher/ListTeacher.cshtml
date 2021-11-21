@@ -18,16 +18,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                @{
-                    foreach (var teacher in ViewBag.TeachersList)
-                    {
-                        <td>
-                            @teacher
-                        </td>
-                    }
-                }
-            </tr>
-        </tbody>
+
+            @{
+                foreach (var teacher in ViewBag.TeachersList)
+                {
+                        <tr>
+                            <td>
+                                @teacher
+                            </td>
+                        </tr>
+                        }
+                        }
+                    
+                </tbody>
     </table>
 </div>
