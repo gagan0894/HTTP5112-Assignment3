@@ -13,18 +13,29 @@ namespace HTTP5112_Assignment3.Controllers
         {
             return View();
         }
-        public ActionResult ListTeacher(int? salary)
+        [HttpGet]
+        public ActionResult ListTeacher()
         {
             List<string> Teachers = new List<string>();
             TeacherDataController controller = new TeacherDataController();
-                if(salary == null)
                 Teachers=controller.ListTeachers();
-                else
-                Teachers =controller.ListTeachersWithSalary(salary);
 
                 ViewBag.TeachersList = Teachers;
                 return View();
+
         }
 
+        [HttpGet]
+        [Route("Teacher/Show/{id}")]
+        public ActionResult Show(int id)
+        {
+            List<string> Teachers = new List<string>();
+            TeacherDataController controller = new TeacherDataController();
+            Teachers = controller.ListTeachersWithSalary(id);
+            ViewBag.Salary = id;
+            ViewBag.TeachersList = Teachers;
+            return View();
+
+        }
     }
 }

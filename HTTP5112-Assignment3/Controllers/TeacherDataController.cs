@@ -56,7 +56,7 @@ namespace HTTP5112_Assignment3.Controllers
         /// <returns>list of teachers with salary greater than input salary</returns>
         [Route("api/TeacherData/ListTeachers/{salary}")]
         [HttpGet]
-        public List<string> ListTeachersWithSalary(int? salary)
+        public List<string> ListTeachersWithSalary(int salary)
         {
             //Create an instance of a connection
             MySqlConnection Conn = School.AccessDatabase();
