@@ -1,8 +1,11 @@
-﻿@{
+﻿@model List<HTTP5112_Assignment3.Models.Teacher>
+@{
     ViewData["Title"] = "List Teachers";
     string[] Headers = new string[] { "Teacher Name" };
 }
-
+<div style=" margin-top: 20px; margin-bottom: 20px;">
+    <a href="New"><h1>Add a new teacher</h1></a>
+</div>
 <div class="table">
     <table class="table table-bordered table-hover">
         <thead>
@@ -20,16 +23,27 @@
         <tbody>
 
             @{
-                foreach (var teacher in ViewBag.TeachersList)
+                foreach (var teacher in Model)
                 {
-                        <tr>
-                            <td>
-                                @teacher
-                            </td>
-                        </tr>
-                        }
-                        }
-                    
-                </tbody>
+                    <tr>
+                                    <td>
+                                        @teacher.Fname @teacher.Lname
+                                    </td>
+                        <td>
+                            <div>
+                                <a href="">Update</a>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div>
+                                <a href="/Author/DeleteConfirm/@teacher.Id">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+        </tbody>
     </table>
 </div>
