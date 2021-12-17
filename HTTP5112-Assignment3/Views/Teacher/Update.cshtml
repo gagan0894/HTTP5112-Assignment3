@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update the Teacher's Salary here</h2>
+<h2>Add a new teacher here</h2>
+<form method="POST" action="/Teacher/UpdateSalary//@ViewBag.teacherId">
+    <div style=" margin:20px;">
+        <label>Enter the updated salary here</label>
+        <input type="text" name="Salary" id="Salary" />
+    </div>
+    <div style=" margin:20px;">
+        <input type="submit" value="Update Salary" name="updatedSalary" id="updatedSalary" />
+    </div>
+</form>
+

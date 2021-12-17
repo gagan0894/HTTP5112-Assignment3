@@ -1,7 +1,7 @@
 ﻿@model List<HTTP5112_Assignment3.Models.Teacher>
 @{
     ViewData["Title"] = "List Teachers";
-    string[] Headers = new string[] { "Teacher Name" };
+    string[] Headers = new string[] { "ID","Employee Number","Teacher Name","Salary" };
 }
 <div style=" margin-top: 20px; margin-bottom: 20px;">
     <a href="New"><h1>Add a new teacher</h1></a>
@@ -25,22 +25,31 @@
             @{
                 foreach (var teacher in Model)
                 {
-                    <tr>
-                                    <td>
-                                        @teacher.Fname @teacher.Lname
-                                    </td>
-                        <td>
-                            <div>
-                                <a href="">Update</a>
-                            </div>
-                        </td>
-                        <td>
+                        <tr>
+                            <td>
+                                @teacher.Id
+                            </td>
+                            <td>
+                                @teacher.Enum
+                            </td>
+                            <td>
+                                @teacher.Fname @teacher.Lname
+                            </td>
+                            <td>
+                                @teacher.Salary
+                            </td>
+                            <td>
+                                <div>
+                                    <a href="/Teacher/Update/@teacher.Id">Update</a>
+                                </div>
+                            </td>
+                            <td>
 
-                            <div>
-                                <a href="/Author/DeleteConfirm/@teacher.Id">Delete</a>
-                            </div>
-                        </td>
-                    </tr>
+                                <div>
+                                    <a href="/Teacher/DeleteConfirm/@teacher.Id">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
                 }
             }
 

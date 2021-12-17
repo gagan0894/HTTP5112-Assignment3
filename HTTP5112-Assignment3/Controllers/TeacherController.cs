@@ -46,6 +46,14 @@ namespace HTTP5112_Assignment3.Controllers
             return View();
         }
 
+        [HttpGet]
+        [Route("Teacher/Update/{id}")]
+        public ActionResult Update(int id)
+        {
+            ViewBag.teacherId = id.ToString();
+            return View();
+        }
+
         [HttpPost]
         [Route("Teacher/Create")]
         public ActionResult Create(string Fname,string Lname,string Enum,string Salary)
@@ -58,6 +66,16 @@ namespace HTTP5112_Assignment3.Controllers
             newTeacher.Salary = Salary;
             newTeacher.Enum = Enum;
             controller.AddTeacher(newTeacher );
+            return RedirectToAction("ListTeacher");
+        }
+
+        [HttpPost]
+        [Route("Teacher/UpdateSalary/{id}")]
+        public ActionResult UpdateSalary(string id, string Salary)
+        {
+            Debug.WriteLine("Id-" + id + ",Salary-" + Salary);
+            TeacherDataController controller = new TeacherDataController();
+            controller.UpdateTeacherSalary(Int32.Parse(id),Salary);
             return RedirectToAction("ListTeacher");
         }
 
